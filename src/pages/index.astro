@@ -1,0 +1,19 @@
+---
+import MainLayout from "src/layouts/MainLayout.astro";
+
+const isRed = true;
+---
+
+<MainLayout title="Test" description="text">
+  <p><span class:list={[{ red: isRed }]}>test</span></p>
+</MainLayout>
+
+<style lang="scss">
+  p {
+    .red {
+      color: red;
+      font-size: 5rem;
+      font-family: "Atkinson Regular";
+    }
+  }
+</style>
