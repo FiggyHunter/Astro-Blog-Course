@@ -1,0 +1,54 @@
+---
+import { slugify } from "@/js/utils.ts";
+
+import MainLayout from "@/layouts/MainLayout.astro";
+
+import { formatBlogPosts } from "@/js/utils";
+import PostCard from "@/components/PostCard.astro";
+const allPosts = await Astro.glob("../blog/*.md"); // change to mdx, if it messes with your new learning
+const formattedPosts = formatBlogPosts(allPosts);
+
+export async function getStaticPaths() {
+  // array of static paths
+  return [
+    {
+      // static path
+      params: { category: slugify("Reference Docs") }, // URL I want to go to.
+      props: { name: "Reference Docs" },
+    },
+    {
+      params: { category: slugify("General") },
+      props: { name: "General" },
+    },
+    {
+      params: { category: slugify("CSS") },
+      props: { name: "CSS" },
+    },
+    {
+      params: { category: slugify("Astro") },
+      props: { name: "Astro" },
+    },
+  ];
+}
+
+const { category } = Astro.params;
+const { name } = Astro.props;
+
+const catPosts = formattedPosts.filter(
+  (post) => slugify(post.frontmatter.category) === category
+);
+---
+
+<MainLayout title={name}>
+  <section class="container" aria-label=`Posts about ${name}`>
+    <h1 class="h1">Posts about <span>{name}</span></h1>
+    <div class="post-container"></div>
+    {
+      catPosts.map(({ frontmatter, url }) => (
+        <PostCard {frontmatter} {url}>
+          {" "}
+        </PostCard>
+      ))
+    }
+  </section>
+</MainLayout>
