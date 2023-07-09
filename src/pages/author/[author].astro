@@ -19,6 +19,8 @@ export async function getStaticPaths() {
       (post) => post.frontmatter.author === author
     );
 
+    console.log(author);
+
     return {
       params: { author: slugify(author) },
       props: { authorName: author, relevantPosts: authorPosts },
@@ -26,7 +28,7 @@ export async function getStaticPaths() {
   });
 }
 
-const { category } = Astro.params;
+const { author } = Astro.params;
 const { authorName, relevantPosts } = Astro.props;
 ---
 
