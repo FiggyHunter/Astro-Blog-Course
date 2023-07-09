@@ -9,14 +9,15 @@ Milestones, tasks, hopes and dreams:
 - [x] Astro Basics 3.7.23'
 - [x] Static routing 3.7.23'
 - [x] Dynamic Routes 3.7.23'
-- [ ] Route Params
-- [ ] Pagination.
+- [x] Route Params 9.7.23'
+- [x] Pagination. 9.7.23'
 - [x] Glob? 4.7.23'
 - [x] In-depth working with Markdowns 4.7.23'
-- [ ] In-depth MDX.
+- [x] In-depth MDX. 9.7.23'
 - [x] Filtering content based on posts/authors/dates. 4.7.23'
 - [ ] SEO in depth.
 - [ ] Self-hosting the project.
 - [ ] Learned all the features of Astro that can help with SEO.
-- [ ] Ready to move on with my own project.
 - [ ] Astro v2.0, content collections API, and more!
+- [ ] Made a request to Strapi, and displayed the blog post.
+- [ ] Ready to move on with my own project.
