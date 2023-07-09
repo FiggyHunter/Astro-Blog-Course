@@ -1,0 +1,28 @@
+---
+// interface Props {
+//   postTitle: string;
+//   authorName: string;
+//   postURL: string;
+//   postDATE: string;
+// }
+
+import { slugify, formatDate } from "@/js/utils";
+
+const { frontmatter, url } = Astro.props;
+const { title, date, author } = frontmatter;
+---
+
+<div class="post">
+  <h3 class="h4"><a href=`${url}/`>{title}</a></h3>
+  <small
+    ><a href=`/author/${slugify(author)}`>{author}</a> • {
+      formatDate(date)
+    }</small
+  >
+</div>
+
+<style>
+  .h3 {
+    justify-self: center;
+  }
+</style>
