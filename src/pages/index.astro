@@ -10,8 +10,6 @@ const allPosts = await getCollection("blog"); // change to mdx, if it messes wit
 const formattedPosts: CollectionEntry<"blog"> = formatBlogPosts(allPosts, {
   limit: 3,
 });
-
-console.log(formattedPosts[0].slug);
 ---
 
 <MainLayout title="Test" description="text">
@@ -34,13 +32,7 @@ console.log(formattedPosts[0].slug);
   <section class="container" aria-label="New Blog Posts">
     <h2 class="h1">New Blog Posts</h2>
     <div class="post-container">
-      {
-        formattedPosts.map(({ data, slug }) => (
-          <PostCard {data} {slug}>
-            {" "}
-          </PostCard>
-        ))
-      }
+      {formattedPosts.map(({ data, slug }) => <PostCard {data} {slug} />)}
     </div>
   </section>
 </MainLayout>
