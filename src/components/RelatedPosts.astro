@@ -1,29 +1,20 @@
 ---
-// interface Props {
-//   postTitle: string;
-//   authorName: string;
-//   postURL: string;
-//   postDATE: string;
-// }
+import { slugify, formatDate } from "../js/utils";
 
-import { slugify, formatDate } from "@/js/utils";
-
-const { data, url } = Astro.props;
-const { title, date, author } = data;
-const base = import.meta.env.BASE_URL.slice(0, -1);
+const { relatedPosts } = Astro.props;
+const BASE_URL = import.meta.env.BASE_URL.slice(0, -1);
 ---
 
-<div class="post">
-  <h3 class="h4"><a href=`${url}/`>{title}</a></h3>
-  <small
-    ><a href=`${base}/author/${slugify(author)}`>{author}</a> • {
-      formatDate(date)
-    }</small
-  >
-</div>
-
-<style>
-  .h3 {
-    justify-self: center;
-  }
-</style>
+{
+  relatedPosts.map((post) => (
+    <div class="post">
+      <h3 class="h4">
+        <a href={`${BASE_URL}/blog/${post.slug}/`}>{post.data.title}</a>
+      </h3>
+      <small>
+        <a href={`/author/${slugify(post.data.author)}/`}>{post.data.author}</a>{" "}
+        • {formatDate(post.data.date)}
+      </small>
+    </div>
+  ))
+}
