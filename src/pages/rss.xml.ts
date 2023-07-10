@@ -1,21 +1,25 @@
-import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
+import { getCollection, CollectionEntry } from "astro:content";
 
-export async function get(context) {
-  console.log(context);
-  const blog = await getCollection("blog");
-  return rss({
-    title: "Leo's Blog",
+import rss from "@astrojs/rss";
+
+import { formatBlogPosts } from "../js/utils";
+const base = import.meta.env.BASE_URL;
+const postImportResult = await getCollection("blog");
+const posts: CollectionEntry<"blog">[] = formatBlogPosts(postImportResult);
+
+export const get = () =>
+  rss({
+    stylesheet: "/rss/styles.xsl",
+    title: "My Astro Blog",
     description: "A humble Astronaut’s guide to the stars",
-    site: context.site,
-    items: blog.map((post) => ({
+    site: "https://www.leotg.com",
+    items: posts.map((post) => ({
+      link: `${base}blog/${post.slug}`,
       title: post.data.title,
-      pubDate: post.data.pubDate,
+      pubDate: post.data.date,
       description: post.data.description,
-      customData: post.data.customData,
-      // Compute RSS link from post `slug`
-      // This example assumes all posts are rendered as `/blog/[slug]` routes
-      link: `/blog/${post.slug}/`,
+      customData: `
+      <author>${post.data.author}</author>
+    `,
     })),
   });
-}
