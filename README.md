@@ -18,6 +18,6 @@ Milestones, tasks, hopes and dreams:
 - [ ] SEO in depth.
 - [ ] Self-hosting the project.
 - [ ] Learned all the features of Astro that can help with SEO.
-- [ ] Astro v2.0, content collections API, and more!
+- [x] Astro v2.0, content collections API, and more! 10.7.23'
 - [ ] Made a request to Strapi, and displayed the blog post.
 - [ ] Ready to move on with my own project.
