@@ -5,23 +5,20 @@ import CategoryCloud from "@/components/CategoryCloud.astro";
 import RelatedPosts from "@/components/RelatedPosts.astro";
 import { formatBlogPosts } from "@/js/utils";
 
-const { frontmatter } = Astro.props;
+const { data } = Astro.props;
 
 const allPosts = await Astro.glob("../pages/blog/*.md"); // change to mdx, if it messes with your new learning
 const formattedPosts = formatBlogPosts(allPosts);
 
 const allRelatedPosts = formattedPosts.filter((post) => {
-  return (
-    post.frontmatter.category === frontmatter.category &&
-    post.frontmatter.title !== frontmatter.title
-  );
+  return post.data.category === data.category && post.data.title !== data.title;
 });
 
 const displayedRelatedPosts = (numberOfPostsDisplayed: number) => {
   return allRelatedPosts.slice(0, numberOfPostsDisplayed);
 };
 
-const { title, description, date, category, author, image } = frontmatter;
+const { title, description, date, category, author, image } = data;
 ---
 
 <MainLayout title={title} {description} `>
@@ -38,7 +35,7 @@ const { title, description, date, category, author, image } = frontmatter;
         <h2 class="h3">Related Posts</h2>
         {
           displayedRelatedPosts(2).map((post) => (
-            <RelatedPosts frontmatter={post.frontmatter} url={post.url} />
+            <RelatedPosts data={post.data} url={post.url} />
           ))
         }
       </aside>

@@ -1,6 +1,7 @@
 ---
 import Link from "./Link.astro";
 
+const base = import.meta.env.BASE_URL.slice(0, -1);
 const { prevUrl, nextUrl } = Astro.props;
 ---
 
@@ -9,7 +10,7 @@ const { prevUrl, nextUrl } = Astro.props;
     prevUrl && (
       <Link
         text="Previous"
-        href={prevUrl}
+        href={base + prevUrl}
         style="primary"
         borderVisible={true}
         isFilled={false}
@@ -22,7 +23,7 @@ const { prevUrl, nextUrl } = Astro.props;
     nextUrl && (
       <Link
         text="Next"
-        href={nextUrl}
+        href={base + nextUrl}
         style="primary"
         borderVisible={true}
         isFilled={false}

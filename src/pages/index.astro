@@ -1,11 +1,17 @@
 ---
+import { getCollection, CollectionEntry } from "astro:content";
+
 import PostCard from "@/components/PostCard.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
 import { formatBlogPosts } from "@/js/utils";
 import Link from "@/components/Link.astro";
 const isRed = true;
-const allPosts = await Astro.glob("./blog/*.md"); // change to mdx, if it messes with your new learning
-const formattedPosts = formatBlogPosts(allPosts, { limit: 3 });
+const allPosts = await getCollection("blog"); // change to mdx, if it messes with your new learning
+const formattedPosts: CollectionEntry<"blog"> = formatBlogPosts(allPosts, {
+  limit: 3,
+});
+
+console.log(formattedPosts[0].slug);
 ---
 
 <MainLayout title="Test" description="text">
@@ -22,15 +28,15 @@ const formattedPosts = formatBlogPosts(allPosts, { limit: 3 });
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam quidem
         tempora beatae mollitia architecto optio sapiente repellendus natus.
       </p>
-      <Link href="/about/" style="secondary" text="👋 About Me" />
+      <Link href="about" style="secondary" text="👋 About Me" />
     </div>
   </section>
   <section class="container" aria-label="New Blog Posts">
     <h2 class="h1">New Blog Posts</h2>
     <div class="post-container">
       {
-        formattedPosts.map(({ frontmatter, url }) => (
-          <PostCard {frontmatter} {url}>
+        formattedPosts.map(({ data, slug }) => (
+          <PostCard {data} {slug}>
             {" "}
           </PostCard>
         ))

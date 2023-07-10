@@ -2,11 +2,13 @@
 import { Icon } from "astro-icon";
 import navData from "../data/navData";
 import Link from "./Link.astro";
+const base = import.meta.env.BASE_URL;
+
 ---
 
 <nav aria-label="Primary">
   <div class="navbar">
-    <a href="/" aria-label="Go Home" class="logomark"
+    <a href=`${base}` aria-label="Go Home" class="logomark"
       ><Icon name="logomark" width="60" /></a
     >
     <ul>

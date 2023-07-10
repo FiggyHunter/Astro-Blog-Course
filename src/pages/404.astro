@@ -2,6 +2,8 @@
 // component imports
 import Link from "../components/Link.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <MainLayout title="Page Not Found">
@@ -19,7 +21,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       <p>We seem to have misplaced something…</p>
     </div>
     <Link
-      href="/"
+      href={base}
       style="secondary"
       text="Go Home"
       icon={{

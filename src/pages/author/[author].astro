@@ -11,15 +11,13 @@ export async function getStaticPaths() {
   const allPosts = await Astro.glob("../blog/*.md"); // change to mdx, if it messes with your new learning
   const formattedPosts = formatBlogPosts(allPosts);
   const allAuthors = [
-    ...new Set(formattedPosts.map((post) => post.frontmatter.author).flat()),
+    ...new Set(formattedPosts.map((post) => post.data.author).flat()),
   ];
 
   return allAuthors.map((author) => {
     const authorPosts = formattedPosts.filter(
-      (post) => post.frontmatter.author === author
+      (post) => post.data.author === author
     );
-
-    console.log(author);
 
     return {
       params: { author: slugify(author) },
@@ -37,8 +35,8 @@ const { authorName, relevantPosts } = Astro.props;
     <h1 class="h1">Posts written by <span>{authorName}</span></h1>
     <div class="post-container"></div>
     {
-      relevantPosts.map(({ frontmatter, url }) => (
-        <PostCard {frontmatter} {url}>
+      relevantPosts.map(({ data, url }) => (
+        <PostCard {data} {url}>
           {" "}
         </PostCard>
       ))

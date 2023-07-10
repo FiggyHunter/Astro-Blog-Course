@@ -1,11 +1,13 @@
+const base = import.meta.env.BASE_URL;
+
 const navData = [
   {
     name: "About",
-    path: "/about/",
+    path: base + "about",
   },
   {
     name: "Blog",
-    path: "/blog/",
+    path: base + "blog",
   },
 ];
 

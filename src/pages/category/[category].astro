@@ -35,7 +35,7 @@ const { category } = Astro.params;
 const { name } = Astro.props;
 
 const catPosts = formattedPosts.filter(
-  (post) => slugify(post.frontmatter.category) === category
+  (post) => slugify(post.data.category) === category
 );
 ---
 
@@ -44,8 +44,8 @@ const catPosts = formattedPosts.filter(
     <h1 class="h1">Posts about <span>{name}</span></h1>
     <div class="post-container"></div>
     {
-      catPosts.map(({ frontmatter, url }) => (
-        <PostCard {frontmatter} {url}>
+      catPosts.map(({ data, url }) => (
+        <PostCard {data} {url}>
           {" "}
         </PostCard>
       ))

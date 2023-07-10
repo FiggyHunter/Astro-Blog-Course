@@ -2,17 +2,19 @@
 import { Image } from "@astrojs/image/components";
 import { slugify, formatDate } from "../js/utils";
 const { title, description, date, category, author, image } = Astro.props;
+const base = import.meta.env.BASE_URL.slice(0, -1);
 ---
 
 <header>
   <div class="container">
     <small
-      ><a href={`/category/${slugify(category)}/`} class="badge">{category}</a
+      ><a href={`${base}/category/${slugify(category)}/`} class="badge"
+        >{category}</a
       ></small
     >
     <h1 class="h2">{title}</h1>
     <p>
-      by <a href={`/author/${slugify(author)}/`}>{author}</a> - {
+      by <a href={`${base}/author/${slugify(author)}/`}>{author}</a> - {
         formatDate(date)
       }
     </p>

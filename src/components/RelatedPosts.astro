@@ -8,14 +8,15 @@
 
 import { slugify, formatDate } from "@/js/utils";
 
-const { frontmatter, url } = Astro.props;
-const { title, date, author } = frontmatter;
+const { data, url } = Astro.props;
+const { title, date, author } = data;
+const base = import.meta.env.BASE_URL.slice(0, -1);
 ---
 
 <div class="post">
   <h3 class="h4"><a href=`${url}/`>{title}</a></h3>
   <small
-    ><a href=`/author/${slugify(author)}`>{author}</a> • {
+    ><a href=`${base}/author/${slugify(author)}`>{author}</a> • {
       formatDate(date)
     }</small
   >
