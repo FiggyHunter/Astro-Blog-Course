@@ -9,10 +9,10 @@ const posts: CollectionEntry<"blog">[] = formatBlogPosts(postImportResult);
 
 export const get = () =>
   rss({
-    stylesheet: "/rss/styles.xsl",
+    stylesheet: `${base}rss/styles.xsl`,
     title: "My Astro Blog",
     description: "A humble Astronaut’s guide to the stars",
-    site: "https://www.leotg.com",
+    site: "https://www.leotg.com/codeblog",
     items: posts.map((post) => ({
       link: `${base}blog/${post.slug}`,
       title: post.data.title,

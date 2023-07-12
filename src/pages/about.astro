@@ -2,12 +2,13 @@
 // component imports
 import Link from "../components/Link.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+const url = import.meta.env.BASE_URL;
 ---
 
 <MainLayout title="About" description="My About Page">
   <section class="container about" aria-label="About Me">
     <img
-      src="/images/headshot.jpg"
+      src=`${url}images/headshot.jpg`
       alt="My headshot"
       width="200"
       height="330"

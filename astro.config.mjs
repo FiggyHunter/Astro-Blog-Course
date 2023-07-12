@@ -5,8 +5,8 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "codeblog/",
-  site: "https://leotg.com/codeblog",
+  base: ".",
+  site: "https://leotg.com/codeblog/",
   integrations: [
     image({
       serviceEntryPoint: "@astrojs/image/sharp",

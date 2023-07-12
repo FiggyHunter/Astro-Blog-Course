@@ -10,12 +10,14 @@ const allPosts = await getCollection("blog"); // change to mdx, if it messes wit
 const formattedPosts: CollectionEntry<"blog"> = formatBlogPosts(allPosts, {
   limit: 3,
 });
+
+const url = import.meta.env.BASE_URL;
 ---
 
 <MainLayout title="Test" description="text">
   <section class="container about" aria-label="About Me">
     <img
-      src="/images/headshot.jpg"
+      src=`${url}images/headshot.jpg`
       alt="My headshot"
       width="200"
       height="330"

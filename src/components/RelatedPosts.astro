@@ -12,7 +12,9 @@ const BASE_URL = import.meta.env.BASE_URL.slice(0, -1);
         <a href={`${BASE_URL}/blog/${post.slug}/`}>{post.data.title}</a>
       </h3>
       <small>
-        <a href={`/author/${slugify(post.data.author)}/`}>{post.data.author}</a>{" "}
+        <a href={`${BASE_URL}/author/${slugify(post.data.author)}/`}>
+          {post.data.author}
+        </a>{" "}
         • {formatDate(post.data.date)}
       </small>
     </div>
