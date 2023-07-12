@@ -16,7 +16,7 @@ Milestones, tasks, hopes and dreams:
 - [x] In-depth MDX. 9.7.23'
 - [x] Filtering content based on posts/authors/dates. 4.7.23'
 - [x] SEO in depth. 11.7.23'
-- [ ] Self-hosting the project.
+- [x] Self-hosting the project. 12.7.23' (Deployed to my server)
 - [x] Learned all the features of Astro that can help with SEO. 11.7.23'
 - [x] Astro v2.0, content collections API, and more! 10.7.23'
 - [x] RSS, sitemaps. 10.7.23'
