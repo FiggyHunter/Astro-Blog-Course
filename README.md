@@ -15,9 +15,9 @@ Milestones, tasks, hopes and dreams:
 - [x] In-depth working with Markdowns 4.7.23'
 - [x] In-depth MDX. 9.7.23'
 - [x] Filtering content based on posts/authors/dates. 4.7.23'
-- [ ] SEO in depth.
+- [x] SEO in depth. 11.7.23'
 - [ ] Self-hosting the project.
-- [ ] Learned all the features of Astro that can help with SEO.
+- [x] Learned all the features of Astro that can help with SEO. 11.7.23'
 - [x] Astro v2.0, content collections API, and more! 10.7.23'
 - [x] RSS, sitemaps. 10.7.23'
 - [ ] Made a request to Strapi, and displayed the blog post.
