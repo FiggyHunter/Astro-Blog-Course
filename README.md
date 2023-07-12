@@ -1,5 +1,7 @@
 # Astro Blog Course
 
+You can find this project self-hosted [HERE](https://www.leotg.com/codeblog)
+
 Project idea:
 I decided to use Astro as my main tool in building my blog. Considering I have no idea how to write Astro, or how to handle specific things like routing, navigation or advanced SEO. I decided to take a short course to get me started, and then
 
