@@ -7,6 +7,8 @@ I decided to use Astro as my main tool in building my blog. Considering I have n
 
 Milestones, tasks, hopes and dreams:
 
+Project started: 3.7.23'
+
 - [x] Setup a Basic project structure 3.7.23'
 - [x] Astro Basics 3.7.23'
 - [x] Static routing 3.7.23'
@@ -22,5 +24,7 @@ Milestones, tasks, hopes and dreams:
 - [x] Learned all the features of Astro that can help with SEO. 11.7.23'
 - [x] Astro v2.0, content collections API, and more! 10.7.23'
 - [x] RSS, sitemaps. 10.7.23'
-- [ ] Made a request to Strapi, and displayed the blog post.
-- [ ] Ready to move on with my own project.
+- [x] Made a request to Strapi, and displayed the blog post.
+- [x] Ready to move on with my own project.
+
+Projected completed:

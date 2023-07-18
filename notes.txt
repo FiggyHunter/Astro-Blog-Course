@@ -1,3 +1,0 @@
-za vježbu napraviti index za category i index za authors
-
-const base = import.meta.env.BASE_URL;
